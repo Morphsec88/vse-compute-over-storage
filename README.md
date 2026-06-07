@@ -9,7 +9,7 @@ This repository contains a raw, bare-bones demonstration of the VSE Engine frame
 
 ## The Core Concept: Compute Over Storage
 Traditional architectures waste petabytes of disk space or massive network bandwidth sync-ing heavy lookup databases. The VSE approach flips this model entirely:
-* **The Micro Seed:** The hardware device or secure bootstrap channel only stores/transfers **3 three-digit numbers** (`data_source.txt`). That is it.
+* **The Micro Seed:** The hardware device or secure bootstrap channel only stores/transfers **3 three-digit numbers** (`data_source.txt`). That is it. The seed values and the resulting obfuscated stream can consist of a mixed combination of alphanumeric characters (both letters and numbers).
 * **On-the-Fly Expansion:** The local manufacturer library (`core_generator.py`) instantly expands these 3 numbers into a non-repeating, zero-padded 8-digit sequence right inside the client's processor memory. 
 * **Infinite Variations & Dynamic Layering:** Real data payload bits (8-bit characters) don't just sit on a flat matrix. 
 
