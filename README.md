@@ -1,3 +1,8 @@
+
+
+<img width="1536" height="1024" alt="645FAF50-F57A-4CA5-BD13-D2F7379EB999" src="https://github.com/user-attachments/assets/56a59d46-d1bb-4d11-9092-2e07b6e37e13" />
+
+
 # VSE Engine - Bypassing Data Storage via Local Deterministic Compute
 
 This repository contains a raw, bare-bones demonstration of the VSE Engine framework. It proves how you can completely eliminate heavy storage footprints and network overhead by forcing the local client's CPU to compute extensive, non-repeating logic environments on the fly from a microscopic physical seed.
