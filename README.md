@@ -123,5 +123,20 @@ In this model, computation becomes the primary carrier of information, while sto
 The VSE Engine is not a matter of choice, but a realization that our current methods of data transmission have reached a total dead end
 
 
+---
+
+### Hardware-Level Persistence Integration (End-to-End Simulation)
+
+The /integration directory contains the functional simulation demonstrating the architectural fusion between the VSE Engine and coordinate-based raw storage layers.
+
+* Components Included: Standalone VSE logic, an isolated instance of the autonomous capsule memory layer, the core integration bridge, and the 100-node hardware stress test framework.
+* Execution: To verify the indexless LBA transmission pipeline locally under explicit hardware synchronization barriers (fsync), execute the following commands in the terminal:
+  ```bash
+  cd integration
+  python vse_stress_test.py
+  ```
+* M&A Evaluation: The storage component is bundled in this repository strictly for standalone simulation purposes. Both technologies remain separate, standalone intellectual properties. Low-level C/Rust device driver specifications and telemetry data under maximum workloads can be requested for acquisition review under a standard Non-Disclosure Agreement (NDA).
+
+
 <img width="1536" height="1024" alt="7141016E-E928-483C-AD24-6975A7F9ED77" src="https://github.com/user-attachments/assets/0bb5c040-32ac-4f83-b792-8d16d4f3ecd8" />
 
