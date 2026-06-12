@@ -59,6 +59,47 @@ In simple terms:
 Don’t resend what both sides already know.
 Only communicate what is genuinely new.
 
+Context-Aware Reconstruction
+The current public demo implements only the deterministic synchronization layer.
+
+However, the broader VSE concept explores an additional capability:
+
+context-aware reconstruction.
+
+Rather than treating every byte sequence as equally independent, a VSE receiver may observe the incoming stream and determine which reconstruction framework best matches the detected environment.
+
+Examples include:
+
+human speech,
+music,
+silence,
+repeated industrial telemetry,
+structured protocol exchanges,
+domain-specific data formats.
+When a recognizable signature appears, the receiver can activate the corresponding reconstruction framework.
+
+Example:
+
+Incoming Pattern
+↓
+Pattern Signature Detection
+↓
+Framework Selection
+↓
+Local Reconstruction Rules
+↓
+Delta Processing
+↓
+Output
+
+The transmitted information therefore shifts from describing every detail explicitly toward identifying the active context and communicating only what differs from the expected structure.
+
+In simple terms:
+
+The receiver first determines what kind of world it is currently observing, and then interprets the incoming information according to the rules of that world.
+
+This concept remains a research direction and is not implemented in the public proof-of-concept.
+
 A Human Analogy
 
 If someone says:
