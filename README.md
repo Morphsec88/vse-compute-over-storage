@@ -1,8 +1,9 @@
+Today's test of VSE  2026.06.14   Istvan Fejes
+
+<img width="1366" height="768" alt="Képernyőfelvétel (154)" src="https://github.com/user-attachments/assets/78b90f34-22fe-43c4-bd04-14427740c81a" />
 
 
-<img width="1536" height="1024" alt="5F98AB6E-5590-41EB-8A04-7230FFAF59C7" src="https://github.com/user-attachments/assets/3daf06cf-4fa0-4977-8547-29fd5e0ea650" />
-
-<img width="1536" height="1024" alt="4BA613AD-5BE5-4CBF-AB3E-96E96C1612AD" src="https://github.com/user-attachments/assets/8aae3535-e9a6-487f-82ee-5ff49993cb6a" />
+<img width="1536" height="1024" alt="4BA613AD-5BE5-4CBF-AB3E-96D96C1612AD" src="https://github.com" />
 
 VSE Engine – Compute More, Transfer Less
 
