@@ -1,7 +1,3 @@
-Today's test of VSE  2026.06.14   Istvan Fejes
-
-<img width="1366" height="768" alt="Képernyőfelvétel (154)" src="https://github.com/user-attachments/assets/78b90f34-22fe-43c4-bd04-14427740c81a" />
-
 
 <img width="1536" height="1024" alt="4BA613AD-5BE5-4CBF-AB3E-96E96C1612AD" src="https://github.com/user-attachments/assets/3281d005-50af-45b2-a6c5-c5e605ace9d2" />
 
