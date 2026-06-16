@@ -2,6 +2,10 @@
 <img width="1536" height="1024" alt="4BA613AD-5BE5-4CBF-AB3E-96E96C1612AD" src="https://github.com/user-attachments/assets/3281d005-50af-45b2-a6c5-c5e605ace9d2" />
 
 
+<img width="2235" height="1921" alt="IMG_2612" src="https://github.com/user-attachments/assets/7c736717-eb38-41a4-85fc-a2ed9584066e" />
+
+
+
 ## Detailed Architectural Signal & Bit Mechanics
 
 The VSE (Velocity & Structure Encoding) Engine operates on a deterministic, hardware-level pulse-position and pulse-duration modulation principles. Instead of processing bytes as serial streaming data, the core pipeline splits every single 8-bit byte into two symmetrical 4-bit sub-structures (nibbles) and processes them through an instantaneous spatial-temporal gating mechanism.
