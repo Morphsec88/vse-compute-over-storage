@@ -46,3 +46,19 @@ Because the lookup map prioritizes what occurs most frequently in real-world fil
 ### Resynthesis (Decoding Pipeline)
 
 During reconstruction, the decoder reads the transient event log. By capturing which of the 8 time slots received a pulse, and analyzing if that pulse signature was SHORT or LONG, the state machine instantly re-evaluates the exact binary configuration of both nibbles. The channels are synchronized, and the pristine, uncompressed 8-bit byte is immediately committed to the local storage interface with zero bitstream transmission over the network.
+
+## LEGAL NOTICE & LICENSING RESTRICTIONS
+
+### 1. Intellectual Property & Proprietary Ownership
+Copyright (C) 2026. All Rights Reserved. 
+The VSE (Velocity & Structure Encoding) Engine, including its internal matrix transformations, clustering coordinate generators, non-linear feedback algorithms, and the specific 4th/5th-bit pulse-gating time-slot architecture described herein, constitutes the strictly proprietary intellectual property and trade secrets of the Author. 
+
+### 2. GNU AGPLv3 Framework Binding
+The source code in this repository is published and legally bound under the strict terms of the GNU Affero General Public License v3.0 (GNU AGPLv3). 
+
+By downloading, viewing, or interacting with this repository, you automatically agree to the following conditions:
+* **Mandatory Copyleft:** If you modify this source code or incorporate its pulse-timing architecture into any software, application, or cloud-based service (SaaS), you are legally obligated to release your entire source code publicly under the exact same GNU AGPLv3 license.
+* **Reverse-Engineering Prohibition:** Any unauthorized commercial exploitation, closed-source derivative work, or obfuscated reverse-engineering of this architecture constitutes an immediate violation of international copyright laws and breach of the license agreement.
+* **Safety & Integrity Net:** Any modification that bypasses the integrated coordinate matrix or changes the frequency distribution maps will trigger the built-in bit-shuffling security layout, resulting in corrupted mathematical outputs and structural data failure.
+
+For commercial licensing inquiries, acquisition of the full un-obfuscated architectural specification, or institutional partnership proposals, please contact the repository owner directly.
