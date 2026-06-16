@@ -16,26 +16,25 @@ This precise optimization represents the theoretical limit of processing velocit
 
 The pipeline immediately isolates the first 4 bits of the incoming hardware byte stream:
 
-1. **The Master Gating Switch (Bit 4):** 
-   Bit 4 is the operational trigger line of the primary cycle. The state machine samples this bit directly:
+1. **The Master Gating Switch (Bit 4):** Bit 4 is the operational trigger line of the primary cycle. The state machine samples this bit directly:
    * A binary `0` triggers a **LOW/SHORT** physical pulse signature.
-   * A binary `1` triggers a **HIGH/LONG** physical pulse signature.
-   This single bit acts as the absolute master switch that modulates the intensity/duration of the transaction event.
+   * A binary `1` triggers a **HIGH/LONG** physical pulse signature. This single bit acts as the absolute master switch that modulates the intensity/duration of the transaction event.
+2. **The Spatial Temporal Window Allocation (Bits 1, 2, and 3):** Simultaneously, the first 3 bits form a spatial vector representing exactly 8 discrete options (`000` through `111`). In a physical deployment, these 8 options correspond to 8 tightly clocked, parallel Time Slots.
+3. **Execution:** The modulated pulse (SHORT or LONG, determined by Bit 4) is instantly directed into the exact Time Slot selected by these 3 bits. Consequently, the position of the hit (1 out of 8 slots) and the intensity of the hit (SHORT/LONG) are determined in a single, parallel clock cycle.
+4. **Temporal Synchronization:** The primary trigger pulse gates and initiates the reference clock, while the secondary data pulse is locked directly to the phase alignment of the frequency-based coordinate ($f$).
 
-2. **The Spatial Temporal Window Allocation (Bits 1, 2, and 3):**
-   Simultaneously, the first 3 bits form a spatial vector representing exactly 8 discrete options (`000` through `111`). In a physical deployment, these 8 options correspond to 8 tightly clocked, parallel **Time Slots (Időablakok)**. 
-   
-   The modulated pulse (SHORT or LONG, determined by Bit 4) is instantly directed into the exact Time Slot selected by these 3 bits. Consequently, the position of the hit (1 out of 8 slots) and the intensity of the hit (SHORT/LONG) are determined in a single, parallel clock cycle.
+---
 
 ### Phase 2: Secondary Nibble Decomposition (Bits 5 to 8)
 
-To maintain maximum parallel throughput and avoid data serialization overhead, the engine mirrors this exact hardware logic immediately on the lower half of the byte (Bits 5 to 8):
+Operating completely in parallel with Phase 1, the pipeline isolates the remaining 4 bits to process the secondary symmetrical sub-structure:
 
-1. **The Secondary Gating Switch (Bit 5):**
-   Bit 5 acts as the sequential toggle switch for the trailing sub-structure. Just like Bit 4, it evaluates to binary `0` or `1`, modulating the secondary pulse signature to either **SHORT** or **LONG**.
+1. **The Secondary Gating Switch (Bit 5):** Bit 5 acts as the sequential toggle switch for the trailing sub-structure. Just like Bit 4, it evaluates to binary `0` or `1`, modulating the secondary pulse signature to either **SHORT** or **LONG**.
+2. **The Secondary Temporal Window Allocation (Bits 6, 7, and 8):** The final 3 bits of the byte form the secondary spatial vector, resolving into another 8-state slot system (`000` through `111`). The secondary modulated pulse is driven straight into this secondary Time Slot matrix.
+3. **Execution:** The second modulated pulse is instantly routed to its designated slot. As demonstrated in the architecture diagram, an input sequence like `0100` seamlessly routes a short pulse directly to $t_3-$.
+4. **Temporal Synchronization:** The primary trigger pulse gates and initiates the reference clock, while the secondary data pulse is locked directly to the phase alignment of the frequency-based coordinate ($f$).
 
-2. **The Secondary Temporal Window Allocation (Bits 6, 7, and 8):**
-   The final 3 bits of the byte form the secondary spatial vector, resolving into another 8-state slot system (`000` through `111`). The secondary modulated pulse is driven straight into this secondary Time Slot matrix.
+---
 
 ### Phase 3: Matrix Projection & High-Frequency Optimization
 
