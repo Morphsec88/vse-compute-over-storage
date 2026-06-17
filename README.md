@@ -8,6 +8,8 @@
 
 ## Detailed Architectural Signal & Bit Mechanics
 
+VSE bypasses the 1:1 bit-to-signal bottleneck. Since the physical medium requires continuous energy propagation, data is moved via weak (LOW) and strong (HIGH) impulses. Statistically, a byte averages 3 LOW and 1 HIGH impulse, reducing the physical payload size below a 2-bit equivalent. This unburdens the channel: it eliminates interference, drops heat, and unlocks massive bandwidth.
+
 The VSE (Velocity & Structure Encoding) Engine operates on a deterministic, hardware-level pulse-position and pulse-duration modulation principles. Instead of processing bytes as serial streaming data, the core pipeline splits every single 8-bit byte into two symmetrical 4-bit sub-structures (nibbles) and processes them through an instantaneous spatial-temporal gating mechanism.
 
 This precise optimization represents the theoretical limit of processing velocity, bypassing traditional algebraic compression cycles.
