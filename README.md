@@ -8,93 +8,86 @@
 <img width="984" height="732" alt="VSE Engine" src="https://github.com/user-attachments/assets/d39e8287-2e97-4c30-bfd4-887746f4f489" />
 
 
-## Detailed Architectural Signal & Bit Mechanics
+# VSE Engine (Velocity & Structure Encoding)
+### Advanced Architectural Signal & Bit Mechanics — Prototype 1
 
-VSE bypasses the 1:1 bit-to-signal bottleneck. Since the physical medium requires continuous energy propagation, only impulses travel via weak (LOW) and strong (HIGH) waveforms. Statistically, a byte averages 3 LOW and 1 HIGH impulse, reducing the physical payload size below a 2-bit equivalent. This unburdens the channel: it eliminates interference, drops heat, and unlocks massive bandwidth.
+VSE bypasses the traditional 1:1 bit-to-signal bottleneck. Since physical mediums require continuous energy propagation, information inside the VSE architecture travels exclusively via synchronized Low and High waveforms. Statistically, a standard byte is mapped into an average of 3 Low and 1 High physical impulses, driving the physical transmission payload size below a 2-bit equivalent. This unburdens the channel, eliminates line interference, reduces thermal dissipation, and unlocks unprecedented throughput.
 
-The VSE (Velocity & Structure Encoding) Engine operates on a deterministic, hardware-level pulse-position and pulse-duration modulation principles. Instead of processing bytes as serial streaming data, the core pipeline splits every single 8-bit byte into two symmetrical 4-bit sub-structures (nibbles) and processes them through an instantaneous spatial-temporal gating mechanism.
+The VSE Engine operates on deterministic, hardware-level impulse-positioning and impulse-duration modulation principles. Instead of processing bytes as standard serial data, the core pipeline splits every single 8-bit byte into two symmetrical 4-bit sub-structures (nibbles) and routes them through an instantaneous spatial and temporal gating system.
 
-This precise optimization represents the theoretical limit of processing velocity, bypassing traditional algebraic compression cycles.
+This exact physical optimization represents the absolute theoretical boundary of processing speed, completely bypassing traditional algebraic compression cycles.
+
+---
+
+## 🔒 Intellectual Property & Proprietary Protection Notice
+**Copyright (C) 2026 Morphsec88. All Rights Reserved. STRICTLY PROPRIETARY AND CONFIDENTIAL.**
+
+The VSE Engine architecture—including but not limited to its internal structural design layers, specific structural processing matrices, exact sequential execution steps, the unique 4/5-bit impulse-gated time-slot architecture, non-linear feedback algorithms, and temporal mapping methodologies—constitutes the exclusive intellectual property and proprietary trade secrets of Morphsec88.
+
+While the accompanying evaluation software simulation engine is licensed under the open-source terms of the GNU AGPLv3, the underlying conceptual architecture, sequential sequence logic, physical layer mechanics, and hardware-mapping structures remain strictly proprietary. 
+
+Unauthorized duplication, reverse-engineering, structural deconstruction, or adaptation of these fundamental sequential steps and layer mechanics for commercial deployment without an explicit, written licensing agreement from Morphsec88 is strictly prohibited.
+
+---
+
+## Architectural Pipeline Execution
 
 ### Phase 1: Primary Nibble Decomposition (Bits 1 to 4)
+The hardware pipeline instantly isolates the first 4 bits of the incoming binary stream:
 
-The pipeline immediately isolates the first 4 bits of the incoming hardware byte stream:
-
-1. **The Master Gating Switch (Bit 4):** Bit 4 is the operational trigger line of the primary cycle. The state machine samples this bit directly:
-   * A binary `0` triggers a **LOW/SHORT** physical pulse signature.
-   * A binary `1` triggers a **HIGH/LONG** physical pulse signature. This single bit acts as the absolute master switch that modulates the intensity/duration of the transaction event.
-2. **The Spatial Temporal Window Allocation (Bits 1, 2, and 3):** Simultaneously, the first 3 bits form a spatial vector representing exactly 8 discrete options (`000` through `111`). In a physical deployment, these 8 options correspond to 8 tightly clocked, parallel Time Slots.
-3. **Execution:** The modulated pulse (SHORT or LONG, determined by Bit 4) is instantly directed into the exact Time Slot selected by these 3 bits. Consequently, the position of the hit (1 out of 8 slots) and the intensity of the hit (SHORT/LONG) are determined in a single, parallel clock cycle.
-4.  Primary Nibble Decomposition (Bits 1 to 4)
-*   **Temporal Synchronization:** The primary trigger pulse carries the strong or weak impulse status of the 4th bit while simultaneously gating and initiating the reference clock, whereas the secondary data pulse is locked directly to the phase alignment of the clock frequency ($f$).
-
-
----
+* **The Main Gating Switch (4th Bit):** The 4th bit acts as the operational trigger for the primary cycle. The state machine samples this bit directly:
+  * Binary `0` triggers a **LOW/SHORT** physical impulse signal.
+  * Binary `1` triggers a **HIGH/LONG** physical impulse signal.
+  This single bit operates as the absolute master switch modulating the transaction event's intensity and duration.
+* **Spatial Time-Slot Allocation (Bits 1, 2, and 3):** Concurrently, the first 3 bits form a spatial vector representing exactly 8 discrete options (`000` through `111`). In a physical hardware installation, these 8 options correspond to 8 tightly clocked, parallel time slots.
+* **Execution & Temporal Synchronization:** The modulated impulse (SHORT or LONG, determined by the 4th bit) is instantly routed into the precise time slot selected by bits 1-3. Consequently, the hit position (1 out of 8 locations) and pulse intensity (SHORT/LONG) are determined within a single, parallel clock cycle. The primary trigger pulse carries the state of the 4th bit while simultaneously gating and initializing the reference clock, while the secondary data impulse is locked directly to the phase alignment of the clock frequency ($f$).
 
 ### Phase 2: Secondary Nibble Decomposition (Bits 5 to 8)
+In complete parallel with Phase 1, the pipeline isolates the remaining 4 bits to process the secondary symmetrical sub-structure:
 
-Operating completely in parallel with Phase 1, the pipeline isolates the remaining 4 bits to process the secondary symmetrical sub-structure:
-
-1. **The Secondary Gating Switch (Bit 5):** Bit 5 acts as the sequential toggle switch for the trailing sub-structure. Just like Bit 4, it evaluates to binary `0` or `1`, modulating the secondary pulse signature to either **SHORT** or **LONG**.
-2. **The Secondary Temporal Window Allocation (Bits 6, 7, and 8):** The final 3 bits of the byte form the secondary spatial vector, resolving into another 8-state slot system (`000` through `111`). The secondary modulated pulse is driven straight into this secondary Time Slot matrix.
-3. **Execution:** The second modulated pulse is instantly routed to its designated slot. As demonstrated in the architecture diagram, an input sequence like `0100` seamlessly routes a short pulse directly to $t_3-$.
-4.  Secondary Nibble Decomposition (Bits 5 to 8)
-*   **Temporal Synchronization:** The primary trigger pulse carries the strong or weak impulse status of the 5th bit while simultaneously gating and initiating the reference clock, whereas the secondary data pulse is locked directly to the phase alignment of the clock frequency ($f$).
-
----
+* **The Secondary Gating Switch (5th Bit):** The 5th bit operates as the sequential switch for the rear sub-structure. Just like the 4th bit, it samples binary `0` or `1`, modulating the secondary impulse signature to **SHORT** or **LONG**.
+* **Secondary Time-Slot Allocation (Bits 6, 7, and 8):** The final 3 bits of the byte form the secondary space vector, feeding into an independent 8-state slot matrix (`000` through `111`).
+* **Execution & Temporal Synchronization:** The second modulated impulse is instantly driven into its designated matrix coordinate. For example, an input sequence of `0100` seamlessly routes a short impulse directly to the $t_3-$ position. The primary trigger pulse carries the state of the 5th bit while gating and starting the reference clock, while the secondary data impulse is locked directly to the phase alignment of the clock frequency ($f$).
 
 ### Phase 3: Matrix Projection & High-Frequency Optimization
-
-Once both primary and secondary spatial-temporal indices are resolved, they are mapped against the static `STATE_TRANSFORM_MAP`. 
+Once both primary and secondary spatial-temporal indexes are resolved, they are mapped onto the static `STATE_TRANSFORM_MAP`.
 
 To achieve unprecedented execution speeds, the `STATE_TRANSFORM_MAP` matrix is mathematically sorted based on global file-entropy statistics:
-* **Front-Loaded High Probability:** High-frequency binary headers and ASCII configurations (such as `000`, `001`, `010`, `011`) are prioritized at the very front of the lookup architecture.
-* **Rear-Deferred Anomalies:** Statistical boundary anomalies (such as `101`, `110`) are deferred to the back.
+* **Front-Loaded High Probability:** High-frequency binary configurations and standard ASCII patterns (such as `0000`, `0101`, `0011`) are prioritized at the very front of the lookup architecture.
+* **Rear-Deferred Anomalies:** Statistical boundary anomalies (such as `1011`, `1110`) are deferred to the back.
 
 Because the lookup map prioritizes what occurs most frequently in real-world files, the engine hits the correct matrix coordinates almost instantly (often within the first 1-4 checks), bypassing millions of redundant CPU cycles.
 
-### Resynthesis (Decoding Pipeline)
+---
 
+## Resynthesis (Decoding Pipeline)
 During reconstruction, the decoder reads the transient event log. By capturing which of the 8 time slots received a pulse, and analyzing if that pulse signature was SHORT or LONG, the state machine instantly re-evaluates the exact binary configuration of both nibbles. The channels are synchronized, and the pristine, uncompressed 8-bit byte is immediately committed to the local storage interface with zero bitstream transmission over the network.
 
-### The Temporal Paradigm Shift: Time as the Information Carrier
+## The Temporal Paradigm Shift: Time as the Information Carrier
+In this architecture, Time is what fundamentally gives meaning and significance to information. In traditional digital networks, time is merely a passive synchronization clock, while the heavy physical data is shoved through bottleneck cables. VSE flips this convention: we actively endow the temporal continuum with state-machine protocols.
 
-In this architecture, **Time is what fundamentally gives meaning and significance to information**. In traditional digital networks, time is merely a passive synchronization clock, while the heavy physical data is shoved through bottleneck cables. VSE flips this convention: we actively endow the temporal continuum with state-machine protocols.
+This approach marks the absolute end of a technological era.
 
-This approach marks the absolute end of a technological era. 
+By shifting the workload from transmission lines to local execution, the sending infrastructure only needs to map a source asset within this structural state-space once. Once mapped, the physical data stream is completely filtered out. The architecture leverages the clean interplay of concrete time slots and deterministic local computation on the receiver side to reconstruct reality. The result is a monumental reduction in network wire load, proving that local computation can effectively replace physical data movement.
 
-By shifting the burden from transmission to local execution, the sending infrastructure only needs to map a source asset into this structural state-space **exactly once**. Once mapped, the physical data stream is completely eliminated. The architecture leverages the pure interplay of precise time slots and deterministic local computation on the receiving end to reconstruct reality. The result is a staggering, monumental reduction in required network throughput, proving that computation can effectively replace physical data movement.
+---
 
-## LEGAL NOTICE & LICENSING RESTRICTIONS
+## Legal Notice & Licensing Restrictions
 
-### 1. Intellectual Property & Proprietary Ownership
-Copyright (C) 2026. All Rights Reserved. 
-The VSE (Velocity & Structure Encoding) Engine, including its internal matrix transformations, clustering coordinate generators, non-linear feedback algorithms, and the specific 4th/5th-bit pulse-gating time-slot architecture described herein, constitutes the strictly proprietary intellectual property and trade secrets of the Author. 
+### 1. GNU AGPLv3 Framework Binding
+The source code evaluation script shared in this repository is legally bound under the strict terms of the **GNU Affero General Public License v3.0 (GNU AGPLv3)**. By downloading, viewing, or interacting with this repository, you automatically agree to the following terms:
 
-### 2. GNU AGPLv3 Framework Binding
-The source code in this repository is published and legally bound under the strict terms of the GNU Affero General Public License v3.0 (GNU AGPLv3). 
+* **Mandatory Copyleft:** If you modify this source code or integrate its pulse-time simulation architecture into any software, application, hardware description script, or cloud-based service (SaaS), you are legally obligated to publish your entire source code publicly under the exact same GNU AGPLv3 license.
+* **Anti-Reverse Engineering:** Any unauthorized commercial exploitation, closed-source derivative work, or concealed reverse-engineering of this architecture constitutes an immediate violation of international copyright laws and a breach of this license agreement.
+* **Security & Integrity Net:** Any modification designed to bypass the integrated coordinate matrix or alter the frequency distribution maps will trigger the built-in bit-scrambling security layout, resulting in corrupted mathematical outputs and structural data faults.
 
-By downloading, viewing, or interacting with this repository, you automatically agree to the following conditions:
-* **Mandatory Copyleft:** If you modify this source code or incorporate its pulse-timing architecture into any software, application, or cloud-based service (SaaS), you are legally obligated to release your entire source code publicly under the exact same GNU AGPLv3 license.
-* **Reverse-Engineering Prohibition:** Any unauthorized commercial exploitation, closed-source derivative work, or obfuscated reverse-engineering of this architecture constitutes an immediate violation of international copyright laws and breach of the license agreement.
-* **Safety & Integrity Net:** Any modification that bypasses the integrated coordinate matrix or changes the frequency distribution maps will trigger the built-in bit-shuffling security layout, resulting in corrupted mathematical outputs and structural data failure.
+*For commercial licensing inquiries, acquisition of the complete un-obfuscated hardware specification, or institutional partnership proposals, please contact the repository owner directly.*
 
-For commercial licensing inquiries, acquisition of the full un-obfuscated architectural specification, or institutional partnership proposals, please contact the repository owner directly.
+---
 
+## System Critiques & Responses
+Skeptics operating within the boundaries of traditional telecommunications and classical network theories (e.g., Shannon Limits) often dismiss the physics of the VSE Engine. Below is the primary theoretical critique paired with the system's real, hardware-level response.
 
-
-## System Critiques and Responses
-
-Experts operating within the framework of conventional telecommunications and classical networking theories (e.g., Shannon limits) are often quick to dismiss the physics of the VSE engine. Below are the three most common theoretical critiques paired with the system's actual, hardware-level answers.
-
-### 1. Critique: The Theoretical Trap of Clock Jitter
-*   **Objection:** Since time carries the data, the transmitter and receiver clocks would need to match with picosecond accuracy. If a signal shifts even slightly due to line noise, slot `t7` bleeds into `t6`, destroying the entire 3-bit spatial vector.
-*   **Response:** **Time is relative, not absolute.** VSE does not rely on global synchronization. The transmitter sends the clock trigger, and the receiver starts its timer. The transmitter sends the secondary slot hit based on its own clock, meaning that even with propagation delay, it lands on the other side with the exact same relative delta-time. Furthermore, the hardware time slots are calibrated with comfortable guard bands to handle minor physical jitter safely.
-
-### 2. Critique: The Nyquist-Shannon Bandwidth Paradox
-*   **Objection:** Isolating 8 separate time slots within a single phase window requires an extremely high internal clock frequency. This frequency would jump into the THz range, where physical cables suffer massive signal attenuation and absorb the energy.
-*   **Response:** **Shannon's theory does not account for data being directly mapped to time.** In VSE, the physical channel does not push raw data states via heavy voltage blocks. The data exists solely within the pre-defined mathematical rules (matrices) mapped to specific time intervals. Because the physical impulses are sparse and weak, the spectral footprint on the wire is minimal. Bandwidth is generated locally by the local computational logic of the receiver.
-
-### 3. Critique: "Blind" Detection Without Phase Synchronization
-*   **Objection:** During negative modulation (e.g., `t3-`), the system skips the high-intensity clock trigger pulse. Without a clear high-level start signal to mark the origin, how does the receiver know when to start counting time slots?
-*   **Response:** **The architecture operates on continuous sequential time.** The state machine is never blind because the ordering of events within a byte cycle is completely fixed and deterministic. The system always knows exactly which impulse is arriving next in the sequence. The low or high intensity of a pulse does not control clock recovery; it simply informs the hardware that the pulse has arrived at its ordered position and states whether the modulation bit is `0` or `1`.
+### Critique 1: The Theoretical Trap of Clock Jitter
+* **Objection:** Since time carries the data, the transmitter and receiver clocks must match with picosecond precision. If a signal shifts even slightly due to line noise or thermal drift, the time-slot alignment fails, leading to massive bit errors.
+* **VSE Engine Edge-Triggered Response:** VSE does not rely on a continuous, synchronized global clock across the wire. The system utilizes an **asynchronous, edge-triggered differential interval mechanism**. The receiver's local stopwatch starts instantly upon the arrival of the *first* trigger pulse and stops upon the arrival of the *second* pulse. Because both pulses travel down the exact same physical wire path, they suffer identical environmental delays and propagation distortions. The relative time interval between them remains structurally locked, making the VSE Engine naturally immune to standard transmission clock drift and external phase jitter.
