@@ -4,9 +4,20 @@ Version 2.2 | Dynamic 1000-Byte Look-Ahead Architecture
 ## Overview
 This production simulation core models an ultra-high-efficiency optical data transmission framework designed for FPGA and NI-DAQ laboratory measurement environments. By leveraging a dynamic execution matrix and multi-dimensional look-ahead optimization, the engine dramatically reduces physical layer line activity compared to traditional serial transmission standards.
 
-## Intellectual Property Notice
-**STRICTLY PROPRIETARY AND CONFIDENTIAL.**
-The exact operating mechanics, specific transmission sequence logic, multi-column index calculations, and pulse delay-based timing modulation algorithms utilized in this core are the exclusive **Intellectual Property of Morphsec88**. All rights reserved under applicable international copyright and patent laws. Unauthorized reproduction, reverse engineering, or redistribution of this operational logic is strictly prohibited.
+# INTELLECTUAL PROPERTY AND LICENSING NOTICE
+
+The algorithmic design, precise execution sequence, time-slot logic, and nanosecond delay modulation mechanisms implemented in this repository represent the original technical innovation and Intellectual Property of **Morphsec88**. 
+
+This software is publicly published and licensed strictly under the terms of the **GNU Affero General Public License v3.0 (AGPLv3)**. 
+
+Under the terms of this license, any entity modifying, hosting, or distributing this source code—whether locally or over a network interface—is legally mandated to:
+* Keep all original copyright notices completely intact.
+* Visibly credit **Morphsec88** as the original inventor in all derivative works and interfaces.
+* Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms. 
+
+Patents and proprietary restrictions remain enforced where applicable. 
+
+**Copyright (C) 2026 Morphsec88. All Rights Reserved.**
 
 ## Core Architectural Mechanics
 
