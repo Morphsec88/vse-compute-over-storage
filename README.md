@@ -5,9 +5,6 @@
 <img width="2235" height="1921" alt="IMG_2612" src="https://github.com/user-attachments/assets/7c736717-eb38-41a4-85fc-a2ed9584066e" />
 
 
-<img width="984" height="732" alt="VSE Engine" src="https://github.com/user-attachments/assets/d39e8287-2e97-4c30-bfd4-887746f4f489" />
-
-
 # VSE Engine (Velocity & Structure Encoding)
 ### Advanced Architectural Signal & Bit Mechanics — Prototype 1
 
