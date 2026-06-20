@@ -1,3 +1,6 @@
+
+<img width="952" height="568" alt="vse_engine_optical" src="https://github.com/user-attachments/assets/a9c41140-ab85-4586-b70b-d1a2a622cec8" />
+
 # VSE Engine Optical - Production Simulation Core
 Version 2.2 | Dynamic 1000-Byte Look-Ahead Architecture
 
