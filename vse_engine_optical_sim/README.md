@@ -1,4 +1,6 @@
 
+<img width="1110" height="658" alt="Képernyőfelvétel (239)" src="https://github.com/user-attachments/assets/25aa76a3-83bf-4ab4-a0af-f835637ec9e3" />
+
 # VSE Engine Optical - Production Simulation Core
 Version 2.2 | Dynamic 1000-Byte Look-Ahead Architecture
 
