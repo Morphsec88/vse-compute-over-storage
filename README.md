@@ -1,8 +1,9 @@
 
 <img width="1536" height="1024" alt="4BA613AD-5BE5-4CBF-AB3E-96E96C1612AD" src="https://github.com/user-attachments/assets/3281d005-50af-45b2-a6c5-c5e605ace9d2" />
 
-
 <img width="2235" height="1921" alt="IMG_2612" src="https://github.com/user-attachments/assets/7c736717-eb38-41a4-85fc-a2ed9584066e" />
+
+<img width="930" height="726" alt="Képernyőfelvétel (237)" src="https://github.com/user-attachments/assets/f33dcd3a-be50-4ff5-a7a5-82a5d2ae714a" />
 
 
 # VSE Engine (Velocity & Structure Encoding)
