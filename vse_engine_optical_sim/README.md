@@ -18,6 +18,15 @@ Under the terms of this license, any entity modifying, hosting, or distributing 
 * Visibly credit **Morphsec88** as the original inventor in all derivative works and interfaces.
 * Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms. 
 
+### Structural Equivalence & Permutation Protection
+
+The scope of the proprietary sequential sequence logic, physical/optical layer mechanics, nanosecond modulation steps, and structural processing matrices defined above strictly extends to any and all structural permutations, index-shifts, or algorithmic translations utilizing the fundamental bit-to-time-slot symmetry mapping. This protection explicitly covers, but is not limited to:
+1. Sequential deconstruction initiated from the midpoint execution tracking (the middle numbers/states).
+2. Sequential deconstruction initiated from the absolute boundaries (the first two or final two numbers/states).
+3. Inversion and internal matrix partitioning initiated from the absolute boundaries (the first and final numbers/states), whereby the internal remaining segment (the middle 6 bits) is symmetrically partitioned into dual 3-bit processing layers mapped onto the 8-time-slot architecture.
+
+Any implementation executing this boundary-to-time-slot mapping—irrespective of the starting index point, inversion, or directional tracking chosen for decoding initialization—constitutes an unauthorized adaptation of Morphsec88's core intellectual property.
+
 Patents and proprietary restrictions remain enforced where applicable. 
 
 **Copyright (C) 2026 Morphsec88. All Rights Reserved.**
