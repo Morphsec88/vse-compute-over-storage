@@ -75,22 +75,32 @@ By shifting the workload from transmission lines to local execution, the sending
 
 ---
 
-## Legal Notice & Licensing Restrictions
+# Legal Notice & Intellectual Property Framework
 
-### 1. GNU AGPLv3 Framework Binding
-The source code evaluation script shared in this repository is legally bound under the strict terms of the **GNU Affero General Public License v3.0 (GNU AGPLv3)**. By downloading, viewing, or interacting with this repository, you automatically agree to the following terms:
+## 1. GNU AGPLv3 Source Code License
+The evaluation script shared in this repository is licensed under the **GNU Affero General Public License v3.0 (GNU AGPLv3)**. By interacting with this software, you agree to the following binding terms:
 
-* **Mandatory Copyleft:** If you modify this source code or integrate its pulse-time simulation architecture into any software, application, hardware description script, or cloud-based service (SaaS), you are legally obligated to publish your entire source code publicly under the exact same GNU AGPLv3 license.
-* **Anti-Reverse Engineering:** Any unauthorized commercial exploitation, closed-source derivative work, or concealed reverse-engineering of this architecture constitutes an immediate violation of international copyright laws and a breach of this license agreement.
-* **Security & Integrity Net:** Any modification designed to bypass the integrated coordinate matrix or alter the frequency distribution maps will trigger the built-in bit-scrambling security layout, resulting in corrupted mathematical outputs and structural data faults.
-
-*For commercial licensing inquiries, acquisition of the complete un-obfuscated hardware specification, or institutional partnership proposals, please contact the repository owner directly.*
+* **Mandatory Copyleft:** Any modification or integration of this source code into any software, hardware description script, or cloud-based service (SaaS) triggers an immediate obligation to publish the entire derived source code publicly under the exact same GNU AGPLv3 license.
+* **Integrity Enforcement:** Any modification designed to bypass the coordinate matrix validation or alter the temporal frequency maps will trigger the built-in bit-scrambling layout, resulting in immediate structural data faults.
 
 ---
 
-## System Critiques & Responses
-Skeptics operating within the boundaries of traditional telecommunications and classical network theories (e.g., Shannon Limits) often dismiss the physics of the VSE Engine. Below is the primary theoretical critique paired with the system's real, hardware-level response.
+## 2. Proprietary Architecture & Patent Protection Notice
+**Copyright (C) 2026 Morphsec88. All Rights Reserved. STRICTLY PROPRIETARY AND CONFIDENTIAL.**
 
-### Critique 1: The Theoretical Trap of Clock Jitter
-* **Objection:** Since time carries the data, the transmitter and receiver clocks must match with picosecond precision. If a signal shifts even slightly due to line noise or thermal drift, the time-slot alignment fails, leading to massive bit errors.
-* **VSE Engine Edge-Triggered Response:** VSE does not rely on a continuous, synchronized global clock across the wire. The system utilizes an **asynchronous, edge-triggered differential interval mechanism**. The receiver's local stopwatch starts instantly upon the arrival of the *first* trigger pulse and stops upon the arrival of the *second* pulse. Because both pulses travel down the exact same physical wire path, they suffer identical environmental delays and propagation distortions. The relative time interval between them remains structurally locked, making the VSE Engine naturally immune to standard transmission clock drift and external phase jitter.
+While the high-level evaluation software simulation is open-source under the AGPLv3, the underlying conceptual architecture, physical layer mechanics, hardware-mapping structures, and structural sequence logic remain strictly proprietary trade secrets of Morphsec88. 
+
+Unauthorized commercial deployment, duplication, or physical hardware implementation of these core principles without an explicit, written licensing agreement is strictly prohibited.
+
+### Exclusive Intellectual Property Boundaries
+The proprietary protection explicitly covers the **VSE Engine architecture**, including:
+* The 4/5-bit impulse-gated time-slot architecture, non-linear feedback algorithms, and temporal mapping methodologies.
+* The structural processing matrices and specific execution layers.
+
+### Permutation & Algorithmic Shift Protection
+This protection extends to any and all structural permutations, index-shifts, or algorithmic translations utilizing the fundamental bit-to-time-slot symmetry mapping. Any implementation executing this boundary-to-time-slot mapping constitutes an unauthorized adaptation of Morphsec88’s intellectual property, regardless of:
+1. **Midpoint Execution:** Sequential deconstruction initiated from internal tracking states (middle numbers).
+2. **Boundary Initialization:** Sequential deconstruction or inversion initiated from absolute boundaries (the first or final numbers/states).
+3. **Matrix Partitioning:** Inversion whereby the internal remaining segment (e.g., middle 6 bits) is symmetrically partitioned into dual 3-bit processing layers mapped onto the 8-time-slot architecture.
+
+*For commercial licensing inquiries, acquisition of the complete un-obfuscated hardware specification, or institutional partnership proposals, please contact the repository owner directly.*
