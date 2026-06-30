@@ -71,8 +71,6 @@ During reconstruction, the decoder reads the transient event log. By capturing w
 ## The Temporal Paradigm Shift: Time as the Information Carrier
 In this architecture, Time is what fundamentally gives meaning and significance to information. In traditional digital networks, time is merely a passive synchronization clock, while the heavy physical data is shoved through bottleneck cables. VSE flips this convention: we actively endow the temporal continuum with state-machine protocols.
 
-This approach marks the absolute end of a technological era.
-
 By shifting the workload from transmission lines to local execution, the sending infrastructure only needs to map a source asset within this structural state-space once. Once mapped, the physical data stream is completely filtered out. The architecture leverages the clean interplay of concrete time slots and deterministic local computation on the receiver side to reconstruct reality. The result is a monumental reduction in network wire load, proving that local computation can effectively replace physical data movement.
 
 ---
