@@ -17,24 +17,6 @@ This exact physical optimization represents the absolute theoretical boundary of
 
 ---
 
-## 🔒 Intellectual Property & Proprietary Protection Notice
-**Copyright (C) 2026 Morphsec88. All Rights Reserved. STRICTLY PROPRIETARY AND CONFIDENTIAL.**
-
-The VSE Engine architecture—including but not limited to its internal structural design layers, specific structural processing matrices, exact sequential execution steps, the unique 4/5-bit impulse-gated time-slot architecture, non-linear feedback algorithms, and temporal mapping methodologies—constitutes the exclusive intellectual property and proprietary trade secrets of Morphsec88.
-
-While the accompanying evaluation software simulation engine is licensed under the open-source terms of the GNU AGPLv3, the underlying conceptual architecture, sequential sequence logic, physical layer mechanics, and hardware-mapping structures remain strictly proprietary. 
-
-Unauthorized duplication, reverse-engineering, structural deconstruction, or adaptation of these fundamental sequential steps and layer mechanics for commercial deployment without an explicit, written licensing agreement from Morphsec88 is strictly prohibited.
-### Structural Equivalence & Permutation Protection
-
-The scope of the proprietary sequential sequence logic, physical layer mechanics, and structural processing matrices defined above strictly extends to any and all structural permutations, index-shifts, or algorithmic translations utilizing the fundamental bit-to-time-slot symmetry mapping. This protection explicitly covers, but is not limited to:
-1. Sequential deconstruction initiated from the midpoint execution tracking (the middle numbers/states).
-2. Sequential deconstruction initiated from the absolute boundaries (the first two or final two numbers/states).
-3. Inversion and internal matrix partitioning initiated from the absolute boundaries (the first and final numbers/states), whereby the internal remaining segment (the middle 6 bits) is symmetrically partitioned into dual 3-bit processing layers mapped onto the 8-time-slot architecture.
-
-Any implementation executing this boundary-to-time-slot mapping—irrespective of the starting index point, inversion, or directional tracking chosen for decoding initialization—constitutes an unauthorized adaptation of Morphsec88's core intellectual property.
----
-
 ## Architectural Pipeline Execution
 
 ### Phase 1: Primary Nibble Decomposition (Bits 1 to 4)
