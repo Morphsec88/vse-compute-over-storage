@@ -7,16 +7,6 @@ Version 2.2 | Dynamic 1000-Byte Look-Ahead Architecture
 ## Overview
 This production simulation core models an ultra-high-efficiency optical data transmission framework designed for FPGA and NI-DAQ laboratory measurement environments. By leveraging a dynamic execution matrix and multi-dimensional look-ahead optimization, the engine dramatically reduces physical layer line activity compared to traditional serial transmission standards.
 
-# LICENSING NOTICE
-
-This software is publicly published and licensed strictly under the terms of the **GNU Affero General Public License v3.0 (AGPLv3)**. 
-
-Under the terms of this license, any entity modifying, hosting, or distributing this source code—whether locally or over a network interface—must:
-* Keep all original copyright notices completely intact.
-* Visibly credit **Morphsec88** as the original author/inventor in all derivative works and interfaces.
-* Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms. 
-
-**Copyright (C) 2026 Morphsec88. All Rights Reserved.**
 
 ## Core Architectural Mechanics
 
@@ -40,3 +30,19 @@ Testing under channel-fault injection configurations yields exceptional line eff
 * **Data Recovery Integrity:** 100% Bit-Perfect Reconstruction.
 * **Net Channel Load Savings:** ~97.48% decrease in physical line transitions against normal raw serial budgets.
 * **Resiliency Management:** Active hardware ARQ state loops coupled with automated Schmitt-Trigger logic filter window jitter (± 1 ns) and line amplitude fluctuations (± 0.08V) on-the-fly.
+
+## Licensing
+
+This software is publicly published and licensed strictly under the terms of the **GNU Affero General Public License v3.0 (AGPLv3)**. 
+
+Under the terms of this license, any entity modifying, hosting, or distributing this source code—whether locally or over a network interface—must:
+* Keep all original copyright notices completely intact.
+* Visibly credit **Morphsec88** as the original author/inventor in all derivative works and interfaces.
+* Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms. 
+
+**Copyright (C) 2026 Morphsec88. All Rights Reserved.**
+
+### Commercial Licensing & Dual-Licensing Options
+If your organization requires a commercial license, proprietary deployment, or custom integration that exempts you from the copyleft terms of the AGPLv3, alternative licensing structures are available. 
+
+For inquiries regarding commercial usage rights, partnerships, or custom agreements, please contact: pakszable@gmail.com
