@@ -73,8 +73,8 @@ Under the terms of this license, any entity modifying, hosting, or distributing 
 
 **Copyright (C) 2026 Morphsec88. All Rights Reserved.**
 
-### 💼 Commercial Licensing & Dual-Licensing Options
+###  Commercial Licensing & Dual-Licensing Options
 If your organization requires a commercial license, proprietary deployment, or custom integration that exempts you from the copyleft terms of the AGPLv3, alternative licensing structures are available. 
 
 For inquiries regarding commercial usage rights, partnerships, or custom agreements, please contact:
-📩 pakszable@gmail.com
+ pakszable@gmail.com
