@@ -23,28 +23,39 @@ The hardware pipeline instantly isolates the first 4 bits of the incoming binary
 * **Spatial Time-Slot Allocation (Bits 1, 2, and 3):** Concurrently, the first 3 bits form a spatial vector representing exactly 8 discrete options (`000` through `111`). In a physical hardware installation, these 8 options correspond to 8 tightly clocked, parallel time slots.
 * **Execution & Temporal Synchronization:** The modulated impulse (SHORT or LONG, determined by the 4th bit) is instantly routed into the precise time slot selected by bits 1-3. Consequently, the hit position (1 out of 8 locations) and pulse intensity (SHORT/LONG) are determined within a single, parallel clock cycle. The primary trigger pulse carries the state of the 4th bit while simultaneously gating and initializing the reference clock, while the secondary data impulse is locked directly to the phase alignment of the clock frequency ($f$).
 
-### Phase 2: Secondary Nibble Decomposition (Bits 5 to 8)
+# Phase 2: Secondary Nibble Decomposition (Bits 5 to 8)
+
 In complete parallel with Phase 1, the pipeline isolates the remaining 4 bits to process the secondary symmetrical sub-structure:
 
-* **The Secondary Gating Switch (5th Bit):** The 5th bit operates as the sequential switch for the rear sub-structure. Just like the 4th bit, it samples binary `0` or `1`, modulating the secondary impulse signature to **SHORT** or **LONG**.
-* **Secondary Time-Slot Allocation (Bits 6, 7, and 8):** The final 3 bits of the byte form the secondary space vector, feeding into an independent 8-state slot matrix (`000` through `111`).
-* **Execution & Temporal Synchronization:** The second modulated impulse is instantly driven into its designated matrix coordinate. For example, an input sequence of `0100` seamlessly routes a short impulse directly to the $t_3-$ position. The primary trigger pulse carries the state of the 5th bit while gating and starting the reference clock, while the secondary data impulse is locked directly to the phase alignment of the clock frequency ($f$).
+* **The Secondary Gating Switch (5th Bit):** The 5th bit operates as the sequential switch for the rear sub-structure. Just like the 4th bit, it samples binary 0 or 1, modulating the secondary impulse signature to SHORT or LONG.
+* **Secondary Time-Slot Allocation (Bits 6, 7, and 8):** The final 3 bits of the byte form the secondary space vector, feeding into an independent 8-state slot matrix (000 through 111).
 
-### Phase 3: Matrix Projection & High-Frequency Optimization
+### Execution & Temporal Synchronization
+The second modulated impulse is instantly driven into its designated matrix coordinate. For example, an input sequence of 0100 seamlessly routes a short impulse directly to the t₃- position. The primary trigger pulse carries the state of the 5th bit while gating and starting the reference clock, while the secondary data impulse is locked directly to the phase alignment of the clock frequency (f).
+
+---
+
+# Phase 3: Matrix Projection & High-Frequency Optimization
+
 Once both primary and secondary spatial-temporal indexes are resolved, they are mapped onto the static `STATE_TRANSFORM_MAP`.
 
 To achieve unprecedented execution speeds, the `STATE_TRANSFORM_MAP` matrix is mathematically sorted based on global file-entropy statistics:
-* **Front-Loaded High Probability:** High-frequency binary configurations and standard ASCII patterns (such as `0000`, `0101`, `0011`) are prioritized at the very front of the lookup architecture.
-* **Rear-Deferred Anomalies:** Statistical boundary anomalies (such as `1011`, `1110`) are deferred to the back.
+
+* **Front-Loaded High Probability:** High-frequency binary configurations and standard ASCII patterns (such as 0000, 0101, 0011) are prioritized at the very front of the lookup architecture.
+* **Rear-Deferred Anomalies:** Statistical boundary anomalies (such as 1011, 1110) are deferred to the back.
 
 Because the lookup map prioritizes what occurs most frequently in real-world files, the engine hits the correct matrix coordinates almost instantly (often within the first 1-4 checks), bypassing millions of redundant CPU cycles.
 
 ---
 
-## Resynthesis (Decoding Pipeline)
+# Resynthesis (Decoding Pipeline)
+
 During reconstruction, the decoder reads the transient event log. By capturing which of the 8 time slots received a pulse, and analyzing if that pulse signature was SHORT or LONG, the state machine instantly re-evaluates the exact binary configuration of both nibbles. The channels are synchronized, and the pristine, uncompressed 8-bit byte is immediately committed to the local storage interface with zero bitstream transmission over the network.
 
-## The Temporal Paradigm Shift: Time as the Information Carrier
+---
+
+# The Temporal Paradigm Shift: Time as the Information Carrier
+
 In this architecture, Time is what fundamentally gives meaning and significance to information. In traditional digital networks, time is merely a passive synchronization clock, while the heavy physical data is shoved through bottleneck cables. VSE flips this convention: we actively endow the temporal continuum with state-machine protocols.
 
 By shifting the workload from transmission lines to local execution, the sending infrastructure only needs to map a source asset within this structural state-space once. Once mapped, the physical data stream is completely filtered out. The architecture leverages the clean interplay of concrete time slots and deterministic local computation on the receiver side to reconstruct reality. The result is a monumental reduction in network wire load, proving that local computation can effectively replace physical data movement.
@@ -53,8 +64,7 @@ By shifting the workload from transmission lines to local execution, the sending
 
 # Legal Notice & Intellectual Property Framework
 
-## 1. GNU AGPLv3 Source Code License
-The evaluation script shared in this repository is licensed under the **GNU Affero General Public License v3.0 (GNU AGPLv3)**. By interacting with this software, you agree to the following binding terms:
+### GNU AGPLv3 Source Code License
+The evaluation script shared in this repository is licensed under the GNU Affero General Public License v3.0 (GNU AGPLv3). By interacting with this software, you agree to the following binding terms:
 
 * **Mandatory Copyleft:** Any modification or integration of this source code into any software, hardware description script, or cloud-based service (SaaS) triggers an immediate obligation to publish the entire derived source code publicly under the exact same GNU AGPLv3 license.
-* **Integrity Enforcement:** Any modification designed to bypass the coordinate matrix validation or alter the temporal frequency maps will trigger the built-in bit-scrambling layout, resulting in immediate structural data faults.
