@@ -58,18 +58,3 @@ The evaluation script shared in this repository is licensed under the **GNU Affe
 
 * **Mandatory Copyleft:** Any modification or integration of this source code into any software, hardware description script, or cloud-based service (SaaS) triggers an immediate obligation to publish the entire derived source code publicly under the exact same GNU AGPLv3 license.
 * **Integrity Enforcement:** Any modification designed to bypass the coordinate matrix validation or alter the temporal frequency maps will trigger the built-in bit-scrambling layout, resulting in immediate structural data faults.
-
----
-
-## 2. Proprietary Architecture & Patent Protection Notice
-**Copyright (C) 2026 Morphsec88. All Rights Reserved. STRICTLY PROPRIETARY AND CONFIDENTIAL.**
-
-While the high-level evaluation software simulation is open-source under the AGPLv3, the underlying conceptual architecture, physical layer mechanics, hardware-mapping structures, and structural sequence logic remain strictly proprietary trade secrets of Morphsec88. 
-
-Unauthorized commercial deployment, duplication, or physical hardware implementation of these core principles without an explicit, written licensing agreement is strictly prohibited.
-
-### Exclusive Intellectual Property Boundaries
-The proprietary protection explicitly covers the **VSE Engine architecture**, including:
-* The 4/5-bit impulse-gated time-slot architecture, non-linear feedback algorithms, and temporal mapping methodologies.
-* The structural processing matrices and specific execution layers.
-
