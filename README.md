@@ -73,10 +73,3 @@ The proprietary protection explicitly covers the **VSE Engine architecture**, in
 * The 4/5-bit impulse-gated time-slot architecture, non-linear feedback algorithms, and temporal mapping methodologies.
 * The structural processing matrices and specific execution layers.
 
-### Permutation & Algorithmic Shift Protection
-This protection extends to any and all structural permutations, index-shifts, or algorithmic translations utilizing the fundamental bit-to-time-slot symmetry mapping. Any implementation executing this boundary-to-time-slot mapping constitutes an unauthorized adaptation of Morphsec88’s intellectual property, regardless of:
-1. **Midpoint Execution:** Sequential deconstruction initiated from internal tracking states (middle numbers).
-2. **Boundary Initialization:** Sequential deconstruction or inversion initiated from absolute boundaries (the first or final numbers/states).
-3. **Matrix Partitioning:** Inversion whereby the internal remaining segment (e.g., middle 6 bits) is symmetrically partitioned into dual 3-bit processing layers mapped onto the 8-time-slot architecture.
-
-*For commercial licensing inquiries, acquisition of the complete un-obfuscated hardware specification, or institutional partnership proposals, please contact the repository owner directly.*
