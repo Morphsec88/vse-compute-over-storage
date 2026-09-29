@@ -7,27 +7,14 @@ Version 2.2 | Dynamic 1000-Byte Look-Ahead Architecture
 ## Overview
 This production simulation core models an ultra-high-efficiency optical data transmission framework designed for FPGA and NI-DAQ laboratory measurement environments. By leveraging a dynamic execution matrix and multi-dimensional look-ahead optimization, the engine dramatically reduces physical layer line activity compared to traditional serial transmission standards.
 
-# INTELLECTUAL PROPERTY AND LICENSING NOTICE
-
-The algorithmic design, precise execution sequence, time-slot logic, and nanosecond delay modulation mechanisms implemented in this repository represent the original technical innovation and Intellectual Property of **Morphsec88**. 
+# LICENSING NOTICE
 
 This software is publicly published and licensed strictly under the terms of the **GNU Affero General Public License v3.0 (AGPLv3)**. 
 
-Under the terms of this license, any entity modifying, hosting, or distributing this source code—whether locally or over a network interface—is legally mandated to:
+Under the terms of this license, any entity modifying, hosting, or distributing this source code—whether locally or over a network interface—must:
 * Keep all original copyright notices completely intact.
-* Visibly credit **Morphsec88** as the original inventor in all derivative works and interfaces.
+* Visibly credit **Morphsec88** as the original author/inventor in all derivative works and interfaces.
 * Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms. 
-
-### Structural Equivalence & Permutation Protection
-
-The scope of the proprietary sequential sequence logic, physical/optical layer mechanics, nanosecond modulation steps, and structural processing matrices defined above strictly extends to any and all structural permutations, index-shifts, or algorithmic translations utilizing the fundamental bit-to-time-slot symmetry mapping. This protection explicitly covers, but is not limited to:
-1. Sequential deconstruction initiated from the midpoint execution tracking (the middle numbers/states).
-2. Sequential deconstruction initiated from the absolute boundaries (the first two or final two numbers/states).
-3. Inversion and internal matrix partitioning initiated from the absolute boundaries (the first and final numbers/states), whereby the internal remaining segment (the middle 6 bits) is symmetrically partitioned into dual 3-bit processing layers mapped onto the 8-time-slot architecture.
-
-Any implementation executing this boundary-to-time-slot mapping—irrespective of the starting index point, inversion, or directional tracking chosen for decoding initialization—constitutes an unauthorized adaptation of Morphsec88's core intellectual property.
-
-Patents and proprietary restrictions remain enforced where applicable. 
 
 **Copyright (C) 2026 Morphsec88. All Rights Reserved.**
 
@@ -44,15 +31,12 @@ Patents and proprietary restrictions remain enforced where applicable.
 * **Index Reference Transfer:** Instead of shifting raw bit strings across the medium, the framework transmits physical vector coordinates within the pre-calibrated matrix.
 
 ### 3. Timing & Delay Calculation
-* **Hardware Time-Slotting:** The exact index position inside the look-ahead table determines the physical emission delay index ($t_1 \dots t_8$).
-* **Delay Modulation:** Emitted photons utilize localized nanosecond shifts ($\Delta t = \text{idx} \times 10\text{ ns}$) to compress data density. A single voltage transition carries a complete multi-bit matrix intersection coordinate.
+* **Hardware Time-Slotting:** The exact index position inside the look-ahead table determines the physical emission delay index (\(t_1 \dots t_8\)).
+* **Delay Modulation:** Emitted photons utilize localized nanosecond shifts (Δ t = idx × 10 ns) to compress data density. A single voltage transition carries a complete multi-bit matrix intersection coordinate.
 * **Quiet States:** Zero-voltage lines (`VOLTAGE_OFF`) are completely non-emissive, resulting in massive active pulse reductions and near-zero line consumption under standard payloads.
 
 ## Production Metrics & Validation
 Testing under channel-fault injection configurations yields exceptional line efficiency constraints:
 * **Data Recovery Integrity:** 100% Bit-Perfect Reconstruction.
-* **Net Channel Load Savings:** $\sim$97.48% decrease in physical line transitions against normal raw serial budgets.
-* **Resiliency Management:** Active hardware ARQ state loops coupled with automated Schmitt-Trigger logic filter window jitter ($\pm 1\text{ ns}$) and line amplitude fluctuations ($\pm 0.08\text{V}$) on-the-fly.
-
-## Licensing
-This implementation framework is registered under the **GNU Affero General Public License v3.0 (AGPLv3)**. Commercial production use, laboratory system deployment, or layout integration requires explicit written authorization from Morphsec88.
+* **Net Channel Load Savings:** ~97.48% decrease in physical line transitions against normal raw serial budgets.
+* **Resiliency Management:** Active hardware ARQ state loops coupled with automated Schmitt-Trigger logic filter window jitter (± 1 ns) and line amplitude fluctuations (± 0.08V) on-the-fly.
