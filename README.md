@@ -69,7 +69,13 @@ This software is publicly published and licensed strictly under the terms of the
 Under the terms of this license, any entity modifying, hosting, or distributing this source code—whether locally or over a network interface—must:
 * Keep all original copyright notices completely intact.
 * Visibly credit **Morphsec88** as the original author/inventor in all derivative works and interfaces.
-* Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms. 
+* Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms.
+
+* ## Enterprise Partnership & IP Acquisition
+
+The upgraded version of the Vse system and its associated Intellectual Property (IP) are available for acquisition or licensing to large-scale enterprise partners. Given the high value and proprietary nature of this technology, detailed technical specifications will be disclosed exclusively upon the execution of a Mutual Non-Disclosure Agreement (**MNDA**) with validated corporate entities. 
+
+For inquiries, please contact: pakszable@gmail.com
 
 **Copyright (C) 2026 Morphsec88. All Rights Reserved.**
 
