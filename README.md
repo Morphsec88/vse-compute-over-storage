@@ -1,86 +1,158 @@
 
-
 # VSE Engine (Velocity & Structure Encoding)
-### Advanced Architectural Signal & Bit Mechanics — Prototype 1
 
-VSE bypasses the traditional 1:1 bit-to-signal bottleneck. Since physical mediums require continuous energy propagation, information inside the VSE architecture travels exclusively via synchronized Low and High waveforms. Statistically, a standard byte is mapped into an average of 3 Low and 1 High physical impulses, driving the physical transmission payload size below a 2-bit equivalent. This unburdens the channel, eliminates line interference, reduces thermal dissipation, and unlocks unprecedented throughput.
+### Experimental Multi-Parameter Signal Encoding — Prototype 1
 
-The VSE Engine operates on deterministic, hardware-level impulse-positioning and impulse-duration modulation principles. Instead of processing bytes as standard serial data, the core pipeline splits every single 8-bit byte into two symmetrical 4-bit sub-structures (nibbles) and routes them through an instantaneous spatial and temporal gating system.
+VSE Engine is an early-stage proof-of-concept exploring a simple question:
 
-This exact physical optimization represents the absolute theoretical boundary of processing speed, completely bypassing traditional algebraic compression cycles.
+**Can multiple properties of a physical transmission event represent several bits of information simultaneously?**
 
----
+Instead of representing an 8-bit symbol as a conventional sequence of individual binary events, the current VSE prototype maps information into a combination of bipolar signal polarity and deterministic timing/index positions.
 
-## Architectural Pipeline Execution
-
-### Phase 1: Primary Nibble Decomposition (Bits 1 to 4)
-The hardware pipeline instantly isolates the first 4 bits of the incoming binary stream:
-
-* **The Main Gating Switch (4th Bit):** The 4th bit acts as the operational trigger for the primary cycle. The state machine samples this bit directly:
-  * Binary `0` triggers a **LOW/SHORT** physical impulse signal.
-  * Binary `1` triggers a **HIGH/LONG** physical impulse signal.
-  This single bit operates as the absolute master switch modulating the transaction event's intensity and duration.
-* **Spatial Time-Slot Allocation (Bits 1, 2, and 3):** Concurrently, the first 3 bits form a spatial vector representing exactly 8 discrete options (`000` through `111`). In a physical hardware installation, these 8 options correspond to 8 tightly clocked, parallel time slots.
-* **Execution & Temporal Synchronization:** The modulated impulse (SHORT or LONG, determined by the 4th bit) is instantly routed into the precise time slot selected by bits 1-3. Consequently, the hit position (1 out of 8 locations) and pulse intensity (SHORT/LONG) are determined within a single, parallel clock cycle. The primary trigger pulse carries the state of the 4th bit while simultaneously gating and initializing the reference clock, while the secondary data impulse is locked directly to the phase alignment of the clock frequency ($f$).
-
-# Phase 2: Secondary Nibble Decomposition (Bits 5 to 8)
-
-In complete parallel with Phase 1, the pipeline isolates the remaining 4 bits to process the secondary symmetrical sub-structure:
-
-* **The Secondary Gating Switch (5th Bit):** The 5th bit operates as the sequential switch for the rear sub-structure. Just like the 4th bit, it samples binary 0 or 1, modulating the secondary impulse signature to SHORT or LONG.
-* **Secondary Time-Slot Allocation (Bits 6, 7, and 8):** The final 3 bits of the byte form the secondary space vector, feeding into an independent 8-state slot matrix (000 through 111).
-
-### Execution & Temporal Synchronization
-The second modulated impulse is instantly driven into its designated matrix coordinate. For example, an input sequence of 0100 seamlessly routes a short impulse directly to the t₃- position. The primary trigger pulse carries the state of the 5th bit while gating and starting the reference clock, while the secondary data impulse is locked directly to the phase alignment of the clock frequency (f).
+The objective of this repository is not to claim a finished communications protocol. It provides an inspectable and reproducible software model for experimenting with multi-parameter physical encoding.
 
 ---
 
-# Phase 3: Matrix Projection & High-Frequency Optimization
+## Core Encoding Model
 
-Once both primary and secondary spatial-temporal indexes are resolved, they are mapped onto the static `STATE_TRANSFORM_MAP`.
+Each 8-bit input symbol is divided into two 4-bit structures:
 
-To achieve unprecedented execution speeds, the `STATE_TRANSFORM_MAP` matrix is mathematically sorted based on global file-entropy statistics:
+- Bits 1–3 select one of eight deterministic timing/index states.
+- Bit 4 determines the polarity/state of the first signal.
+- Bit 5 determines the polarity/state of the second signal.
+- Bits 6–8 select another one of eight deterministic timing/index states.
 
-* **Front-Loaded High Probability:** High-frequency binary configurations and standard ASCII patterns (such as 0000, 0101, 0011) are prioritized at the very front of the lookup architecture.
-* **Rear-Deferred Anomalies:** Statistical boundary anomalies (such as 1011, 1110) are deferred to the back.
+Conceptually:
 
-Because the lookup map prioritizes what occurs most frequently in real-world files, the engine hits the correct matrix coordinates almost instantly (often within the first 1-4 checks), bypassing millions of redundant CPU cycles.
+**8-bit symbol → two multi-parameter data events**
+
+Each data event therefore carries information through more than one physical parameter:
+
+1. its polarity/state, and
+2. its timing/index position.
+
+The current FEC-oriented simulation additionally transmits a parity event used for basic error detection and heuristic recovery.
+
+With parity enabled, the prototype can therefore be described as:
+
+**8 data bits → 2 multi-parameter data events + 1 parity event**
+
+This mapping is the central concept being investigated.
 
 ---
 
-# Resynthesis (Decoding Pipeline)
+## Deterministic State Mapping
 
-During reconstruction, the decoder reads the transient event log. By capturing which of the 8 time slots received a pulse, and analyzing if that pulse signature was SHORT or LONG, the state machine instantly re-evaluates the exact binary configuration of both nibbles. The channels are synchronized, and the pristine, uncompressed 8-bit byte is immediately committed to the local storage interface with zero bitstream transmission over the network.
+The current prototype uses a fixed state table:
+
+`STATE_TRANSFORM_MAP`
+
+The mapping assigns each 3-bit vector to a deterministic physical/index state.
+
+The receiver performs the inverse mapping to reconstruct the original vector.
+
+This implementation is intentionally simple. The table should be understood as an experimental state-mapping mechanism rather than an optimized production lookup architecture.
 
 ---
 
-# The Temporal Paradigm Shift: Time as the Information Carrier
+## Receiver and Tolerance Window
 
-In this architecture, Time is what fundamentally gives meaning and significance to information. In traditional digital networks, time is merely a passive synchronization clock, while the heavy physical data is shoved through bottleneck cables. VSE flips this convention: we actively endow the temporal continuum with state-machine protocols.
+The experimental receiver reconstructs each symbol from:
 
-By shifting the workload from transmission lines to local execution, the sending infrastructure only needs to map a source asset within this structural state-space once. Once mapped, the physical data stream is completely filtered out. The architecture leverages the clean interplay of concrete time slots and deterministic local computation on the receiver side to reconstruct reality. The result is a monumental reduction in network wire load, proving that local computation can effectively replace physical data movement.
+- detected signal polarity,
+- recovered index position,
+- and parity state.
+
+The current simulation also implements a fixed index tolerance window.
+
+Small simulated index offsets can therefore be normalized back to their expected deterministic state before decoding.
+
+The prototype additionally includes parity-assisted heuristic error handling.
+
+This is an experimental error-recovery mechanism and should not be interpreted as a complete production-grade Forward Error Correction (FEC) implementation.
 
 ---
 
-## Licensing & Notice
+## Transmission Event Reduction
 
-This software is publicly published and licensed strictly under the terms of the **GNU Affero General Public License v3.0 (AGPLv3)**. 
+The current simulation compares the VSE representation against a configurable serial baseline.
 
-Under the terms of this license, any entity modifying, hosting, or distributing this source code—whether locally or over a network interface—must:
-* Keep all original copyright notices completely intact.
-* Visibly credit **Morphsec88** as the original author/inventor in all derivative works and interfaces.
-* Open-source their entire derivative infrastructure under the exact same AGPLv3 compliance terms.
+With the FEC/parity mode enabled, each 8-bit input symbol produces:
 
-* ## Enterprise Partnership & IP Acquisition
+- 2 multi-parameter data events
+- 1 parity event
 
-The upgraded version of the Vse system and its associated Intellectual Property (IP) are available for acquisition or licensing to large-scale enterprise partners. Given the high value and proprietary nature of this technology, detailed technical specifications will be disclosed exclusively upon the execution of a Mutual Non-Disclosure Agreement (**MNDA**) with validated corporate entities. 
+For a baseline defined as 10 discrete serial events per byte, this corresponds to a **nominal 70% reduction in discrete transmission-event count**:
 
-For inquiries, please contact: pakszable@gmail.com
+`10 baseline events → 3 VSE events`
 
-**Copyright (C) 2026 Morphsec88. All Rights Reserved.**
+This percentage describes event count inside the current architectural model.
 
-###  Commercial Licensing & Dual-Licensing Options
-If your organization requires a commercial license, proprietary deployment, or custom integration that exempts you from the copyleft terms of the AGPLv3, alternative licensing structures are available. 
+It does **not** by itself establish equivalent bandwidth, power, thermal, latency, or throughput improvement on physical hardware.
 
-For inquiries regarding commercial usage rights, partnerships, or custom agreements, please contact:
- pakszable@gmail.com
+Those properties require hardware measurement.
+
+---
+
+## Noise and Fault Simulation
+
+The current prototype can simulate:
+
+- bipolar voltage degradation,
+- deterministic timing/index displacement,
+- polarity inversion,
+- tolerance-window recovery,
+- parity mismatch detection.
+
+These tests are intended to evaluate the behavior of the encoding model under controlled fault conditions.
+
+Future versions should extend this testing to randomized noise distributions, out-of-window errors, burst errors, retransmission overhead, and measured bit-error rates.
+
+---
+
+## Current Status
+
+VSE Engine is an experimental prototype.
+
+It is not a production-ready networking protocol and has not yet been validated as a physical communications system.
+
+The repository exists so that the encoding concept can be:
+
+- inspected,
+- reproduced,
+- challenged,
+- benchmarked,
+- and eventually evaluated on real transmission hardware.
+
+A major next step would be implementation on a physical electrical or optical test platform and comparison against an explicitly defined baseline.
+
+---
+
+## Relationship to VSE Engine Optical
+
+The electrical/bipolar simulation and VSE Engine Optical explore the same general idea from different physical perspectives:
+
+**information can be represented jointly across multiple measurable properties of a transmission event rather than treating every event as carrying only one binary state.**
+
+The two implementations remain experimental and should be benchmarked independently.
+
+---
+
+## Licensing
+
+This software is publicly available under the GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later).
+
+Copyright (C) 2026 Morphsec88.
+
+See the repository LICENSE file for the complete license terms.
+
+---
+
+## Commercial Licensing & Research Collaboration
+
+Organizations interested in proprietary deployment, hardware validation, research collaboration, commercial licensing, or alternative licensing arrangements may contact:
+
+**pakszable@gmail.com**
+
+Additional non-public technology related to the broader research program is not included in this repository. Any disclosure of such material is subject to a separate agreement where applicable.
+
